@@ -7,3 +7,9 @@ function getAllGames(){
 	return $data;
 }
 
+
+function getGame($id){
+	global $db;
+    $data = $db->query("SELECT * FROM `games` WHERE id = $id ORDER BY name LIMIT 1;");
+	return $data[0];
+}

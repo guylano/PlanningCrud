@@ -13,24 +13,18 @@
 
 </head>
 <body>
-
-    <?php $data = getAllPlanning(); 
-        foreach($data as $D){
-            
-            $game = getGame($D['game_id']);
-            print($game['name'].' at '.$D['speeltijd']);
-            print('<form action="showplanning.php" method="post"><input type="hidden" name="id" value="'.$D['id'].'"><input type="submit" value="Show"></form>');
-        }
-
-        //$p = getPlanningItem(1);
-        //print_r($p);
-    ?>
-
+    <?php
+        $id=$_REQUEST['id'];
+        $planning = getPlanningItem($id);
+        print($planning['game']['name'].' at '.$planning['speeltijd']);
+    ?>    
+    <img  class="image" src='resources/images/<?php  print($planning["game"]["image"]); ?>'>
 <header>
 </header>
-<a href="createplanning.php">
-      <button>Create new plan</button>
-    </a>
+<?php
+    print('<form action="editplanning.php" method="post"><input type="hidden" name="id" value="'.$id.'"><input type="submit" value="Edit"></form>');
+?>
+
 <footer>&copy; Guylano 2022</footer>
 </body>
 </html>
