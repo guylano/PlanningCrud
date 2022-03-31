@@ -13,18 +13,26 @@
 
 </head>
 <body>
-    <?php
-        $id=$_REQUEST['id'];
-        $planning = getPlanningItem($id);
-        print($planning['game']['name'].' at '.$planning['speeltijd']);
-    ?>    
-    <img  class="image" src='resources/images/<?php  print($planning["game"]["image"]); ?>'>
-<header>
-</header>
-<?php
-    print('<form action="editplanning.php" method="post"><input type="hidden" name="id" value="'.$id.'"><input type="submit" value="Edit"></form>');
-?>
-
-<footer>&copy; Guylano 2022</footer>
+    <div class="container">
+        <header>
+            <?php
+                $id=$_REQUEST['id'];
+                $planning = getPlanningItem($id);
+                print('<h1>'.$planning['game']['name'].'<br>'.$planning['speeltijd'].'</h1>');
+            ?>
+        </header>
+        <div class="img">
+            <img  class="image" src='resources/images/<?php  print($planning["game"]["image"]); ?>'>
+        </div>
+        <?php
+            print('
+                <form action="editplanning.php" method="post">
+                    <input type="hidden" name="id" value="'.$id.'">
+                    <input type="submit" value="Edit">
+                </form>
+                ');
+        ?>
+        <footer>&copy; Guylano 2022</footer>
+    </div>
 </body>
 </html>
