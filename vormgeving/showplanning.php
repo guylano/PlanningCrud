@@ -18,9 +18,20 @@
             <?php
                 $id=$_REQUEST['id'];
                 $planning = getPlanningItem($id);
-                print('<h1>'.$planning['game']['name'].'<br>'.$planning['speeltijd'].'</h1>');
+                print(
+                    '<h1>'.
+                        $planning['game']['name'].'<br>'.$planning['speeltijd'].
+                    '</h1>'
+                );
             ?>
         </header>
+        <div class="textfield inline">
+            <?php
+                print(
+                    $planning['game']['description']
+                );
+            ?>
+        </div>
         <div class="img">
             <img  class="image" src='resources/images/<?php  print($planning["game"]["image"]); ?>'>
         </div>
@@ -32,7 +43,7 @@
                 </form>
                 ');
         ?>
-        <footer>&copy; Guylano 2022</footer>
     </div>
+    <footer>&copy; Guylano 2022</footer>
 </body>
 </html>
