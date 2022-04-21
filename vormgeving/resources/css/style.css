@@ -3,10 +3,18 @@ body{
 	color: white;
 }
 
-header{
+.title{
 	width: 50%;
 	display: inline-block;
 	grid-row: 1;
+}
+
+header{
+	background-color: gray;
+	padding: 10px;
+	width: 75%;
+	margin: 0 auto;
+	border-bottom: solid 1px dimgray;
 }
 
 h1{
@@ -49,4 +57,9 @@ footer{
 
 .textfield{
 	width: 75%;
+}
+
+th{
+	border: 1px solid floralwhite;
+	padding: 0;
 }

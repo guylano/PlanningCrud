@@ -18,10 +18,10 @@ class dbh{
 	}
 
 	public function connect(){
-		$this->servername = 'byb9bsxqfu2v7oolyjar-mysql.services.clever-cloud.com';
-		$this->username = 'uwtf0alhguownvmj';
-		$this->password = 'KEKop9SbOvvI5z3edVN6';
-		$this->dbname = 'byb9bsxqfu2v7oolyjar';
+		$this->servername = 'localhost';
+		$this->username = 'root';
+		$this->password = 'mysql';
+		$this->dbname = 'volledige applicatie';
 		$this->charset = 'utf8mb4';
 
 

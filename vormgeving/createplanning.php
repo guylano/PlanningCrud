@@ -2,15 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>All Characters</title>
+    <title>Game Planning</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link href="resources/css/style.css" rel="stylesheet"/>
-    <link href="resources/css/fix.css" rel="stylesheet"/>
     <?php include_once 'resources/includes/dbh.inc.php' ?>
     <?php include_once 'resources/models/GamesModel.php' ?>
     <?php include_once 'resources/models/PlayersModel.php' ?>
 </head>
 <body>
+    <header>
+        <div class="title">
+            <h1>Create Plan</h1>
+        </div>
+    </header>
     <div class="container">
         <form action="storeplanning.php" method="post">
             <select name="Game" required>
@@ -35,9 +39,9 @@
                     }
                 ?>
             </select><br>
-            
+            <input type="hidden" name="id" value="null">
             <input type="datetime-local" name="starttijd" required>
-            <input type="submit" value="Create">
+            <input type="submit" value="Create" name="submit">
         </form>
 
     </div>

@@ -15,30 +15,52 @@ function getPlanningItem($id){
     $val = $data[0]['id'];
     $itemX = $db->query("SELECT * FROM `planning_x_players` WHERE planning_id = $val ORDER BY id;");
     $data = $data[0];
+    if($data['GameMaster_id'] != 0){
+        $d= $data['GameMaster_id'];
+        $master = $db->query("SELECT * FROM `players` WHERE id = $d ORDER BY id;");
+        $data['master'] = $master[0];
+    }
     foreach($itemX as $X){
-    	$data['players'][] = $db->query("SELECT * FROM `players` WHERE id = 1 ORDER BY id;");
+        $p_id = $X['player_id'];
+        $player = $db->query("SELECT * FROM `players` WHERE id = $p_id ORDER BY id;");
+    	$data['players'][] = $player[0];
     }
     $data['game']= getGame($data['game_id']);
 	return $data;
 }
 
 
-function storePlanning($insert=array(), $players=array()){
+function storePlanning($insert=array(), $players=array(), $id=null){
 	global $db;
     $game = getGame($insert[0]);
+    $ogTime = '"'.$insert[2].'"';
     $insert[3] = $game['play_minutes']+$game['explain_minutes'];
     //print_r($players);
     $insert[2]=str_replace('T', ' ', $insert[2]);
     $insert[2] = '"'.$insert[2].':00"';
-   	$data = $db->query("INSERT INTO `planning` (`game_id`, `GameMaster_id`, `speeltijd`, `speelduur`) VALUES (
-   		$insert[0],
-   		 $insert[1],
-   		  $insert[2],
-   		   $insert[3]) ;");
-   
-    $planning = $db->query("SELECT * FROM `planning` ORDER BY id DESC LIMIT 1");
-    $planning = $planning[0];
-    $planning = $planning['id'];
+   	
+   if($id == null){
+    $data = $db->query("INSERT INTO `planning` (`game_id`, `GameMaster_id`, `speeltijd`, `speelduur`, `speeltijd_origin`) VALUES (
+        $insert[0],
+         $insert[1],
+          $insert[2],
+           $insert[3],
+            $ogTime) ;");
+        $planning = $db->query("SELECT * FROM `planning` ORDER BY id DESC LIMIT 1");
+        $planning = $planning[0];
+        $planning = $planning['id'];
+   }else{
+
+        $data = $db->query("UPDATE `planning`
+            SET `game_id` = $insert[0],
+                `GameMaster_id` = $insert[1],
+                `speeltijd` = $insert[2],
+                `speelduur` = $insert[3],
+                `speeltijd_origin` = $ogTime
+            WHERE `id` = $id ;");
+            $planning= $id;
+            $db->query("DELETE FROM `planning_x_players` WHERE `planning_id`=$id;");
+   }
     foreach ($players as $player) {
     	
     	$data = $db->query("INSERT INTO `planning_x_players` (`player_id`, `planning_id`) VALUES (
@@ -46,4 +68,15 @@ function storePlanning($insert=array(), $players=array()){
    		 $planning) ;");
     }
 	return;
+}
+
+
+function deletePlanning($id = null){
+    global $db;
+    if($id != null){
+        $db->query("DELETE FROM `planning` WHERE `id`=$id;");
+        $db->query("DELETE FROM `planning_x_players` WHERE `planning_id`=$id;");
+    }
+
+    return;
 }
