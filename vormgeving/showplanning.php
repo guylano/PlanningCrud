@@ -24,10 +24,17 @@
                 );
             ?>
         </div>
+        <div class="master">
+            <h2>
+                <?php
+                    print('Game Master : '.$planning['master']['name']);
+                ?>
+            </h2>
+        </div>
     </header>
     <div class="container">
         
-        <div class="textfield inline">
+        <div class="textfield">
             <?php
                 print(
                     $planning['game']['description']
@@ -37,9 +44,7 @@
         <div class="img">
             <img  class="image" src='resources/images/<?php  print($planning["game"]["image"]); ?>'>
         </div>
-        <?php
-            print($planning['master']['name']);
-        ?>
+        
         <table>
           <tr>
             <th>*</th>

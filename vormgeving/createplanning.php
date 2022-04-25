@@ -17,7 +17,7 @@
     </header>
     <div class="container">
         <form action="storeplanning.php" method="post">
-            <select name="Game" required>
+            <select class="" name="Game" required>
                 <?php 
                     $data = getAllGames(); 
                     foreach($data as $D){
@@ -25,14 +25,14 @@
                     }
                 ?>
             </select><br>
-            <select multiple name="Players[]" required>
+            <select class="" multiple name="Players[]" required>
                 <?php $data = getAllPlayers(); 
                     foreach($data as $D){
                         print '<option value='.$D['id'].'>'.$D['name'].'</option>';
                     }
                 ?>
             </select><br>
-            <select name="gameMaster" required>
+            <select class="" name="gameMaster" required>
                 <?php $data = getAllPlayers(); 
                     foreach($data as $D){
                         print '<option value='.$D['id'].'>'.$D['name'].'</option>';
@@ -40,7 +40,7 @@
                 ?>
             </select><br>
             <input type="hidden" name="id" value="null">
-            <input type="datetime-local" name="starttijd" required>
+            <input class="" type="datetime-local" name="starttijd" required>
             <input type="submit" value="Create" name="submit">
         </form>
 

@@ -32,6 +32,7 @@ h1{
 
 .image{
 	width: 100%;
+	display: inline;
 }
 
 .container{
@@ -56,10 +57,21 @@ footer{
 }
 
 .textfield{
-	width: 75%;
+	width: 50%;
+	display: inline-block;
 }
 
 th{
 	border: 1px solid floralwhite;
 	padding: 0;
+}
+
+.master{
+	justify-content: right;
+	width: 25%;
+	margin: 0px;
+}
+
+p {
+	width: 100%;
 }
