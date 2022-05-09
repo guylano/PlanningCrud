@@ -24,7 +24,7 @@
 
 
 	if($submit == 'update'){
-
+		header("Location: index.php");
 	}else{
 		header("Location: index.php");
 	}

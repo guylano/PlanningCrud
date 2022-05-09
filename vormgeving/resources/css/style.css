@@ -1,33 +1,39 @@
 body{
 	background-color: black;
 	color: white;
+	
 }
 
+
 .title{
-	width: 50%;
+	width: 5%;
+	grid-column: 1;
 	display: inline-block;
-	grid-row: 1;
+	
 }
 
 header{
-	background-color: gray;
+	background-color: darkgray;
 	padding: 10px;
 	width: 75%;
 	margin: 0 auto;
 	border-bottom: solid 1px dimgray;
+	display: grid;
+	grid-template-columns: auto;
 }
 
 h1{
-	width: 100%;
+	
 	margin: 0;
+	
 }
 
 .img{
-	width: 25%;
+	width: 40%;
 	margin-left: auto;
 	margin-right: 0px;
 	display: inline-block;
-
+	
 }
 
 .image{
@@ -35,11 +41,12 @@ h1{
 	display: inline;
 }
 
-.container{
+#container{
 	background-color: gray;
 	width: 75%;
 	margin: 0 auto;
 	padding: 10px;
+	
 }
 
 footer{
@@ -52,13 +59,12 @@ footer{
 
 
 
-.inline{
-	display: inline;
-}
+
 
 .textfield{
 	width: 50%;
-	display: inline-block;
+	display: block;
+	
 }
 
 th{
@@ -67,9 +73,11 @@ th{
 }
 
 .master{
-	justify-content: right;
-	width: 25%;
-	margin: 0px;
+	
+	width: 75%;
+	grid-column: 2;
+	display: inline-block;
+	
 }
 
 p {
