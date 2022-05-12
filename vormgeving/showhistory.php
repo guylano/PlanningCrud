@@ -16,13 +16,13 @@
 <body>
     <header class="border-b-2 border-white">
         <div class="text-3xl font-bold">
-            <h1>Plannings tool</h1>
+            <h1>Plannings tool-History</h1>
         </div>
     </header>
     
     <div class="bg-zinc-500 w-3/4 m-auto">
         <table class="w-full">
-            <?php $data = getAllPlanning(); 
+            <?php $data = getAllPlanning('history'); 
                 foreach($data as $D){                
                     $game = getGame($D['game_id']);
                     print('<tr>');
@@ -58,8 +58,8 @@
         <a href="createplanning.php" class="inline-block px-6 py-2.5 bg-purple-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out">
             <button>Create new plan</button>
         </a>
-        <a href="showhistory.php" class="inline-block px-6 py-2.5 bg-gray-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-gray-700 hover:shadow-lg focus:bg-gray-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-800 active:shadow-lg transition duration-150 ease-in-out">
-            <button>Show History</button>
+        <a href="index.php" class="inline-block px-6 py-2.5 bg-green-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-green-700 hover:shadow-lg focus:bg-green-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-800 active:shadow-lg transition duration-150 ease-in-out">
+            <button>Show planning</button>
         </a>
     </div>
     

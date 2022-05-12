@@ -19,14 +19,38 @@
 
 	storePlanning($insert, $players, $id);
 
+	if($submit == 'update'){
+		echo '<script type="text/javascript">
+            	window.onload = function () { alert("Plan edited"); }
+			</script>';
+	}else{
+		echo '<script type="text/javascript">
+            	window.onload = function () { alert("Plan created"); }
+			</script>';
+	}
+
+
+
+
+
 
 
 
 
 	if($submit == 'update'){
-		header("Location: index.php");
+		print(
+			'<script type="text/javascript">
+				alert("Planning geupdate");
+				location="index.php";
+			</script>'
+		);
 	}else{
-		header("Location: index.php");
+		print(
+			'<script type="text/javascript">
+				alert("Planning opgeslagen");
+				location="index.php";
+			</script>'
+		);
 	}
 
 

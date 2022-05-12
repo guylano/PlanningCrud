@@ -37,11 +37,23 @@
         <div class="flex">
             <div class="textfield w-2/3">
                 <div class="flex p-3">
-                    <?php
-                        print(
-                            $planning['game']['description']
-                        );
-                    ?>
+                    <div class="w-full">
+                        <?php
+                            print(
+                                $planning['game']['description']
+                            );
+                        ?>
+                    </div>
+                </div>
+                <div class="flex p-3">
+                    <div class="w-full">
+                        <?php
+                            print('Het spel duurt overigens '.
+                                $planning['game']['play_minutes']
+                                .' minuuten.'
+                            );
+                        ?>
+                    </div>
                 </div>
                 <div class="flex">
                     <table class="w-3/4 m-auto my-4">

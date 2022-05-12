@@ -2,10 +2,17 @@
 include_once 'resources/includes/dbh.inc.php';
 include_once 'resources/models/GamesModel.php';
 
-function getAllPlanning(){
-	global $db;
-    $data = $db->query("SELECT * FROM `planning` ORDER BY speeltijd;");
-	return $data;
+function getAllPlanning($when = 'future'){
+    if($when === 'future'){
+    	global $db;
+        $data = $db->query("SELECT * FROM `planning` WHERE speeltijd >= now() ORDER BY speeltijd;");
+    	return $data;
+    }
+    if($when === 'history'){
+        global $db;
+        $data = $db->query("SELECT * FROM `planning` WHERE speeltijd <= now() ORDER BY speeltijd;");
+        return $data;
+    }
 }
 
 
