@@ -20,24 +20,6 @@
 	storePlanning($insert, $players, $id);
 
 	if($submit == 'update'){
-		echo '<script type="text/javascript">
-            	window.onload = function () { alert("Plan edited"); }
-			</script>';
-	}else{
-		echo '<script type="text/javascript">
-            	window.onload = function () { alert("Plan created"); }
-			</script>';
-	}
-
-
-
-
-
-
-
-
-
-	if($submit == 'update'){
 		print(
 			'<script type="text/javascript">
 				alert("Planning geupdate");
